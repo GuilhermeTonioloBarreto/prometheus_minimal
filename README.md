@@ -10,7 +10,7 @@ O objetivo deste código é disponibilizar um código mínimo possível para o e
 - O Prometheus realiza uma busca de dados periódica em um servidor http para retirar os dados. O servidor http precisa expor um endpoint chamado /metrics utilizando o método GET. Já a forma da mensagem a ser resgatada via método GET deve estar no formato Prometheus Exposition Format. Um exemplo deste formato se encontra abaixo. 
 
 ```
-# HELP temperatura Temperatura do sensor
+# HELP temperatura Temperatura Ambiente
 # TYPE temperatura gauge
 temperatura{sensor="sala"} 24.7
 temperatura{sensor="cozinha"} 26.1
@@ -23,7 +23,7 @@ temperatura{sensor="cozinha"} 26.1
 - Dentro desta pasta, rode o comando docker compose up -d
 - Para verificar o funcionamento do servidor http, verifique a mensagem exibida no link http://localhost:8000/metrics e veja se ele retorna valores de temperatura (a temperatura está aleatória entre 20 e 30 °C)
 - Para verificar o funcionamento do banco de dados prometheus, veja se a interface do prometheus aparece no http://localhost:9090/
-- Para verificar se os dados estão sendo gravados no banco de dados, na aba Query, escreva a funcao up e clique em execute
+- Para verificar se os dados estão sendo gravados no banco de dados, na aba Query, escreva a função up e clique no botão "Execute"
    - Se retornar o valor 1, o servidor está sendo lido pelo prometheus
    - Se retornar o valor 0, está tendo algum problemana conexão do prometheus
 
